@@ -12,7 +12,7 @@ app.listen(porta, () =>{
     console.log('Server runing on port: '+porta)
 })
 
-const apikey = "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"
+const apikey = "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"
 
 app.post("/back-end/api/openai", async (request, response) => {
     
