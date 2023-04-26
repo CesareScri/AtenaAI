@@ -1,0 +1,362 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-primary-rgb: 13,110,253;
+    --bs-secondary-rgb: 108,117,125;
+    --bs-success-rgb: 25,135,84;
+    --bs-info-rgb: 13,202,240;
+    --bs-warning-rgb: 255,193,7;
+    --bs-danger-rgb: 220,53,69;
+    --bs-light-rgb: 248,249,250;
+    --bs-dark-rgb: 33,37,41;
+    --bs-white-rgb: 255,255,255;
+    --bs-black-rgb: 0,0,0;
+    --bs-body-color-rgb: 33,37,41;
+    --bs-body-bg-rgb: 255,255,255;
+    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-bg: #fff;
+    }
+    
+    
+
+    body{
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        color: #231f20;
+        text-align: var(--bs-body-text-align);
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        background-color: #fbfbfb;
+        line-height: inherit;
+        transition: 200ms;
+    }
+
+    .dark-mode{
+        background-color: #212129;
+        color: white;
+    }
+
+    .dark-mode-child{
+        background-color: #32343e;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 100vh;
+        height: 100%;
+        padding: 6rem 2rem 4rem;
+    }
+
+    header {
+        width: 100%;
+        height: 100%;
+    }
+
+    header .first-nav{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    header .first-nav button{
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 200ms;
+        border-radius: 5px;
+    }
+
+
+    header .first-nav button svg{
+       width: 20px;
+       height: 25px;
+    }
+
+      .second-nav{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+      }
+
+      .des-1{
+        opacity: .6;
+      }
+
+      .fb1{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .title-1{
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 800;
+      }
+
+      .title-2{
+        --un-gradient-from: rgba(56,189,248,var(--un-from-opacity, 1));
+        --un-gradient-to: rgba(56,189,248,0);
+        --un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to);
+        --un-gradient-to: rgba(5,150,105,var(--un-to-opacity, 1));
+        --un-gradient-shape: to right;
+        --un-gradient: var(--un-gradient-shape), var(--un-gradient-stops);
+        background-image: linear-gradient(var(--un-gradient));
+        -webkit-background-clip: text;
+        background-clip: text;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 800;
+        color: transparent;
+      }
+
+      .container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        height: 100%;
+        margin-top: 2.5rem;
+      }
+
+      .chat-container{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .message-sent{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        gap: 10px;
+      }
+
+      .circle-parent{
+        display: flex;
+        width: max-content;
+        height: 100%;
+        align-items: flex-start;
+      }
+
+      .circle-sent{
+        width: 30px;
+        height: 30px;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(226,246,185,1) 0%, rgba(0,212,255,1) 100%);
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        
+    }
+
+    .message-sent p{
+      display: flex;
+      flex-direction: column;
+        width: 80%;
+        height: 100%;
+        justify-content: center;
+        margin-top: 0.10rem;
+        opacity: .8;
+        line-height: 1.75;
+        white-space: pre-wrap;
+
+      }
+
+      
+
+
+      .circle-sent-recive{
+        width: 30px;
+        height: 30px;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(246,214,185,1) 0%, rgba(213,213,184,1) 36%, rgba(0,255,153,1) 100%);
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        
+    }
+
+    .input-bottom{
+        display: flex;
+        height: 50px;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .white-input{
+        width: 100%;
+        font-family: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #eceef1;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .white-input::placeholder{
+        opacity: 0.6;
+    }
+
+    .white-btn{
+        width: 20%;
+        font-family: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #eceef1;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .dark-mode-child{
+        background-color: #32343e;
+    }
+
+    .animation{
+        transition: 200ms;
+        animation: 1s rotate forwards;
+        opacity: 0.1;
+
+    }
+
+    @keyframes rotate {
+        to{
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+    }
+
+    .wait-res{
+      width: 60px;
+      height: 30px;
+      justify-content: start;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .span-load{
+      width: 8px;
+      height: 8px;
+      background-color: #32343e;
+      border-radius: 10px;
+      transition: 200ms;
+    }
+
+
+    .span-1{
+      animation: span1 1s infinite;
+    }
+
+    @keyframes span1 {
+      to{
+        opacity: 0;
+      } 
+    }
+    .span-2{
+      animation: span2 1s 250ms infinite;
+    }
+
+    @keyframes span2 {
+      to{
+        opacity: 0;
+      } 
+    }
+
+    .span-3{
+      animation: span3 1s 450ms infinite;
+    }
+
+    @keyframes span3 {
+      to{
+        opacity: 0;
+      } 
+    }
+
+    pre{
+      width: 100%;
+      height: 100%;
+    }
