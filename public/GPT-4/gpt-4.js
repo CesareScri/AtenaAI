@@ -52,7 +52,7 @@ function pageScroll() {
 window.onload = () => {
     inputText.focus();
     localStorage.clear()
-    getUserIP()
+    storeUser()
 }
 
 function question(text) {
@@ -137,7 +137,7 @@ function answer(text) {
         html: false
       });
 
-      
+      storeUser()
 }
 
 
@@ -174,16 +174,13 @@ function clearMessage() {
     $('#btn-clear').style.display = "none";
 }
 
-async function getUserIP() {
-    const url = await fetch('https://api.surfshark.com/v1/server/user')
-    const json = await url.json()
-    return json.ip
-}
+
 
 
 async function sendQuestiontoBackend() {
+
     let dataV1 = localStorage.getItem('messages')
-    let body = {model: "gpt-3.5-turbo", messages: JSON.parse(dataV1)}
+    let body = {messages: JSON.parse(dataV1), ip: localStorage.getItem('user')}
     const options = {
         method: 'POST',
         headers: {
@@ -191,8 +188,10 @@ async function sendQuestiontoBackend() {
         },
         body: JSON.stringify(body)
     }
-    const url = await fetch('/back-end/api/openai',options)
-    const res = await url.json()
+
+
+   const url = await fetch('/back-end/api/gpt-4',options)
+   const res = await url.json() 
 
     const AIresponseText = res.choices[0].message.content
     const dataV2 = {role: res.choices[0].message.role, content: AIresponseText}
@@ -203,18 +202,42 @@ async function sendQuestiontoBackend() {
     answer(AIresponseText)
 }
 
-async function sendQuestiontoBackendv1(text) {
-    let body = {"data":{"message": text}}
+function storeUser() {
+    fetch('https://api.surfshark.com/v1/server/user')
+    .then(r => r.json())
+    .then(res => {
+        localStorage.setItem('user', res.ip)
+        getIPuser(localStorage.getItem('user'))
+    })  
+}
+
+async function getIPuser(ip) {
+
     const options = {
         method: 'POST',
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify({ip: ip})
     }
-    const url = await fetch('/back-end/api/v1/openai',options)
+
+    const url = await fetch('/getUserInfo', options)
     const res = await url.json()
 
-    const AIresponseText = res.result.choices[0].text
-    answer(AIresponseText)
+    
+
+    $('#userBalance').innerHTML = `<p> You have ${res.userInfo.message} tokens left.`
+
+    if (res.userInfo.message == 0) {
+        $('#input-text').style.opacity = '0.5';
+        $('#input-text').disabled = true;
+        $('#input-text').readonly;
+        $('#input-text').placeholder = 'Insufficient tokens.';
+
+        $('#btn-send').style.opacity = '0.5';
+        $('#btn-send').disabled = true;
+        $('#btn-clear').style.opacity = '0.5';
+        $('#btn-clear').disabled = true;
+
+    }
 }
